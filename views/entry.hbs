@@ -1,0 +1,116 @@
+<nav class="sidebar-menu">
+  
+  <ul>
+    <li>
+      <a href="/patient">
+        <i class="fa fa-solid fa-house"></i>
+        <span class="nav-text">
+          Dashboard
+        </span>
+      </a>
+
+    </li>
+
+    <li>
+      <a href="/patient/updatePwd">
+        <i class="fa fa-solid fa-key"></i>
+        <span class="nav-text">
+          Change Password
+        </span>
+      </a>
+    </li>
+
+    <li>
+      <a href="/patient/leaderboard">
+        <i class="fa fa-solid fa-trophy"></i>
+        <span class="nav-text">
+          Leaderboard
+        </span>
+      </a>
+    </li>
+  </ul>
+
+  
+  <form id="logout" action="/patient/logout" method="POST">
+  <ul class="logout">
+    <li>
+      <a onclick="document.getElementById('logout').submit()">
+        <i class="fa fa-power-off"></i>
+        <span class="nav-text">
+        Logout
+        </span>
+      </a>
+    </li>
+  </ul>
+  </form>
+</nav>
+
+<section class="patient-entry">
+  <div class="breadcrumbs-navigation">
+    <p><a href="/patient">Home</a> > Patient Entry</p>
+  </div>
+  <h1 class="title">Patient Entry</h1>
+
+  <table class="patient-entry-form">
+    <tr>
+      <th> Attribute </th>
+      <th> Status </th>
+      <th> Value </th>
+      <th> Recorded Time </th>
+      <th> Comment </th>
+    </tr>
+    {{#each record.data}}
+      {{#if this.availability}}
+        <form action="" method="POST">
+          <tr>
+            <input type="hidden" name="key" value="{{@key}}" />
+
+            <td>{{this.fullName}}</td>
+            <td>{{this.status}}</td>
+            {{#ifUnrecorded this.status}}
+              <td><input
+                  type="number"
+                  min="0"
+                  max="9999"
+                  name="value"
+                  placeholder="Enter your record here"
+                  step="0.01"
+                  required
+                /></td>
+            {{else}}
+              <td>{{this.value}}</td>
+            {{/ifUnrecorded}}
+
+            <td>{{this.createdAt}}</td>
+
+            {{#ifUnrecorded this.status}}
+              <td><input
+                  type="string"
+                  name="comment"
+                  length="120"
+                  placeholder="Enter your comment here"
+                  required
+                /></td>
+            {{else}}
+              <td>{{this.comment}}</td>
+            {{/ifUnrecorded}}
+
+            {{#ifUnrecorded this.status}}
+              <td><button
+                  type="submit"
+                  class="submit-button"
+                >Submit</button></td>
+            {{/ifUnrecorded}}
+          </tr>
+
+        </form>
+      {{else}}
+      {{/if}}
+
+    {{/each}}
+  </table>
+
+  <a href="/patient">
+    <button class="back-button"> Back </button>
+  </a>
+</section>

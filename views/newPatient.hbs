@@ -1,0 +1,80 @@
+<nav class="sidebar-menu-clinician">
+  <ul>
+    <li>
+      <a href="/clinician">
+        <i class="fa fa-solid fa-house"></i>
+        <span class="nav-text">
+          Dashboard
+        </span>
+      </a>
+
+    </li>
+
+    <li>
+      <a href="/clinician/updatePwd">
+        <i class="fa fa-solid fa-key"></i>
+        <span class="nav-text">
+          Change Password
+        </span>
+      </a>
+    </li>
+
+    <li>
+      <a href="/clinician/new_patient">
+        <i class="fa fa-solid fa-circle-plus"></i>
+        <span class="nav-text">
+          Create New Patient
+        </span>
+      </a>
+    </li>
+
+    <li>
+      <a href="/clinician/view">
+        <i class="fa fa-solid fa-comment"></i>
+        <span class="nav-text">
+          Comment
+        </span>
+      </a>
+    </li>
+  </ul>
+
+  <form id="logout" action="/clinician/logout" method="POST">
+    <ul class="logout">
+      <li>
+        <a onclick="document.getElementById('logout').submit()">
+          <i class="fa fa-power-off"></i>
+          <span class="nav-text">
+            Logout
+          </span>
+        </a>
+      </li>
+    </ul>
+  </form>
+</nav>
+
+<section class="new-patient">
+  <form action="" method="POST">
+    <label class="form-label"> Patient's First Name:</label>
+    <input type="text" name="firstName" /></br>
+
+    <label class="form-label"> Patient's Last Name:</label>
+    <input type="text" name="lastName" /></br>
+
+    <label class="form-label"> Patient's email:</label>
+    <input type="text" name="email" /></br>
+
+    <label class="form-label"> Patient's Year of Birth:</label>
+    <input type="number" min="1900" max="2022" name="yearOfBirth" /></br>
+
+    <label class="form-label"> Patient's Age:</label>
+    <input type="number" min="0" max="122" name="age" /></br>
+
+    <label class="form-label"> Patient's Gender:</label>
+    <input type="text" name="gender" /></br>
+
+    <label class="form-label"> Clinician Name</label>
+    <input type="text" name="clinician" /></br>
+
+    <button type="submit" class="submit-button">Submit</button>
+  </form>
+</section>

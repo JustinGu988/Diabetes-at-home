@@ -1,0 +1,73 @@
+<nav class="sidebar-menu">
+  <ul>
+    <li>
+      <a href="/patient">
+        <i class="fa fa-solid fa-house"></i>
+        <span class="nav-text">
+          Dashboard
+        </span>
+      </a>
+
+    </li>
+
+    <li>
+      <a href="/patient/updatePwd">
+        <i class="fa fa-solid fa-key"></i>
+        <span class="nav-text">
+          Change Password
+        </span>
+      </a>
+    </li>
+
+    <li>
+      <a href="/patient/leaderboard">
+        <i class="fa fa-solid fa-trophy"></i>
+        <span class="nav-text">
+          Leaderboard
+        </span>
+      </a>
+    </li>
+  </ul>
+
+  <ul class="logout">
+    <li>
+      <a href="/patient/logout">
+        <i class="fa fa-power-off"></i>
+        <span class="nav-text">
+          Logout
+        </span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<section class="patient-information">
+  <div class="breadcrumbs-navigation">
+    <p><a href="/patient">Home</a> > Patient Information</p>
+  </div>
+  <h1 class="title">Patient information</h1>
+  {{#with onePatient}}
+  <ul>
+    <h1>{{this.firstName}} {{this.lastName}}</h1><br>
+    <h3>My ID:</h3>
+    <li>{{this._id}} </li>
+    <h3>My email:</h3>
+    <li>{{this.email}}</li>
+    <h3>My Screen Name:</h3>
+    <li>{{this.screenName}} </li>
+    <h3>My Text Bio:</h3>
+    <li>{{this.textBio}} </li>
+  </ul>
+  {{/with}}
+
+  <form action="" method="POST">
+    <h3> Change your Text Bio:</h3></br>
+    <input type="text" name="new_tb" placeholder="Enter new Text Bio here." />
+    <button type="submit" class="submit-button">Update</button>
+  </form></br>
+
+
+  <a href="/patient">
+    <button class="back-button"> Back </button>
+  </a>
+</section>
